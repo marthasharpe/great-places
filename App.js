@@ -1,10 +1,18 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import PlacesListScreen from './screens/PlacesListScreen';
 
-export default function App() {
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <View>
-      <Text>Hello, World!</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Great Places" component={PlacesListScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
+
+export default App;
