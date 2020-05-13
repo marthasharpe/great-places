@@ -5,6 +5,7 @@ import PlacesListScreen from './screens/PlacesListScreen';
 import PlaceDetailsScreen from './screens/PlaceDetailsScreen';
 import NewPlaceScreen from './screens/NewPlaceScreen';
 import MapScreen from './screens/MapScreen';
+import Colors from './constants/Colors';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,7 @@ function App() {
       // set header styles across every screen here
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#4287f5',
+            backgroundColor: Colors.primary,
           },
           headerTintColor: '#fff',
           headerTitleStyle: {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import Colors from '../constants/Colors';
 
 const PlacesListScreen = ({ navigation }) => {
     return (
@@ -10,7 +11,7 @@ const PlacesListScreen = ({ navigation }) => {
                 onPress={() => navigation.navigate('New Place')}
                 name="plus"
                 size={24}
-                color="black"
+                color={Colors.primary}
               />
         </View>
     )
