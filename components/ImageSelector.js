@@ -1,13 +1,31 @@
 import React from 'react';
-import { View, Button, Text, StyleSheet, Image } from 'react-native';
+import { View, Button, Text, StyleSheet, Image, Alert } from 'react-native';
 import Colors from '../constants/Colors';
 import * as ImagePicker from 'expo-image-picker';
+import * as Permissions from 'expo-permissions';
 
 const ImageSelector = () => {
 
-    const takeImageHandler = () => {
+    const getPermissions = async () => {
+        const result = await Permissions.askAsync(
+            Permissions.CAMERA, Permissions.CAMERA_ROLL
+        );
+        if (result.status !== "granted") {
+            Alert.alert(
+                'You denied camera access.',
+                'Approve access to take a picture.',
+                [{text: 'Okay'}]
+            );
+            return false;
+        }
+        return true;
+    };
+
+    const takeImageHandler = async () => {
+        const hasPermission = await getPermissions();
+        if (!hasPermission) return;
         ImagePicker.launchCameraAsync();
-    }
+    };
 
     return (
         <View style={styles.imageContainer}>
@@ -32,7 +50,10 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 200,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        borderWidth: 1,
+        borderColor: "#ccc",
+        margin: 10
     },
     image: {
         width: "100%",
