@@ -7,10 +7,8 @@ import Colors from '../constants/Colors';
 const PlaceItem = props => {
     return (
         <TouchableOpacity style={styles.placeItem} onPress={props.onSelect}>
-            <Image style={styles.image} source={{ uri: props.image }} />
             <View style={styles.infoContainer}>
                 <Text style={styles.title}>{props.title}</Text>
-                <Text style={styles.address}>{props.address}</Text> 
             </View>
         </TouchableOpacity>
     )
@@ -19,20 +17,14 @@ const PlaceItem = props => {
 const styles = StyleSheet.create({
     placeItem: {
         flexDirection: "row",
-        borderColor: Colors.primary,
-        borderWidth: 1,
-        alignItems: "center"
-    },
-    image: {
-        height: 30,
-        width: 40
+        borderBottomColor: Colors.primary,
+        borderBottomWidth: 1,
+        alignItems: "center",
+        padding: 10
     },
     title: {
-        fontSize: 16
+        fontSize: 16,
     },
-    address: {
-        fontSize: 14
-    }
 });
 
 export default PlaceItem;

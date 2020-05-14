@@ -5,6 +5,7 @@ import {
 import Colors from '../constants/Colors';
 import { useDispatch } from 'react-redux';
 import * as placesActions from '../store/placesActions';
+import ImageSelector from '../components/ImageSelector';
 
 const NewPlaceScreen = props => {
     const [titleValue, setTitleValue] = useState('');
@@ -29,12 +30,13 @@ const NewPlaceScreen = props => {
                     style={styles.input}
                     onChangeText={titleChangeHandler}
                     value={titleValue}
-                    />
+                />
+                <ImageSelector />
                 <Button
                     title="Save"
                     color={Colors.primary}
                     onPress={onSaveHandler}
-                    />
+                />
             </View>
         </ScrollView>
     )

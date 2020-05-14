@@ -4,12 +4,15 @@ import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import placesReducer from './store/placesReducer';
 import PlacesNavigator from './navigation/placesNavigator';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootReducer = combineReducers({
   places: placesReducer
 })
 
-const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
+const store = createStore(rootReducer, composeWithDevTools(
+  applyMiddleware(ReduxThunk)
+));
 
 function App() {
   return (

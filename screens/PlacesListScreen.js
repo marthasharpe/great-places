@@ -7,7 +7,8 @@ import PlaceItem from '../components/PlaceItem';
 
 const PlacesListScreen = ({ navigation }) => {
     const places = useSelector(state => state.places.places);
-
+    console.log(places)
+    
     return (
         <View style={styles.listContainer}>
            <FlatList
@@ -19,9 +20,7 @@ const PlacesListScreen = ({ navigation }) => {
                         itemTitle: itemData.item.title,
                         placeId: itemData.item.id
                     })}
-                    image={null}
                     title={itemData.item.title}
-                    address={null}
                     />
                 )}
                 /> 
