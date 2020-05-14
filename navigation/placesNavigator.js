@@ -9,7 +9,7 @@ import Colors from '../constants/Colors';
 
 const Stack = createStackNavigator();
 
-function PlacesNavigator() {
+const PlacesNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
