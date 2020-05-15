@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
 import { AntDesign } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
@@ -20,6 +20,7 @@ const PlacesListScreen = ({ navigation }) => {
                         itemTitle: itemData.item.title,
                         placeId: itemData.item.id
                     })}
+                    image={itemData.item.imageUri}
                     title={itemData.item.title}
                     />
                 )}

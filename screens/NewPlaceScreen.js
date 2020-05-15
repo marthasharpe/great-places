@@ -9,17 +9,22 @@ import ImageSelector from '../components/ImageSelector';
 
 const NewPlaceScreen = props => {
     const [titleValue, setTitleValue] = useState('');
+    const [selectedImage, setSelectedImage] = useState();
 
     const dispatch = useDispatch();
 
     const titleChangeHandler = input => {
         //add validation
         setTitleValue(input);
-    }
+    };
 
     const onSaveHandler = () => {
-        dispatch(placesActions.addPlace(titleValue));
+        dispatch(placesActions.addPlace(titleValue, selectedImage));
         props.navigation.goBack();
+    };
+
+    const imageTakenHandler = imageUri => {
+        setSelectedImage(imageUri)
     }
 
     return (
@@ -31,7 +36,7 @@ const NewPlaceScreen = props => {
                     onChangeText={titleChangeHandler}
                     value={titleValue}
                 />
-                <ImageSelector />
+                <ImageSelector onImageTaken={imageTakenHandler}/>
                 <Button
                     title="Save"
                     color={Colors.primary}
